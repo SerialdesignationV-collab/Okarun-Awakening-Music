@@ -1,0 +1,114 @@
+wait(1)
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+local AnimHandler = loadstring(game:HttpGet("https://raw.githubusercontent.com/ProudNamed/SuperLightning/refs/heads/main/AnimModule/MainModule"))()
+local Walk = game:GetObjects("rbxassetid://128808444469386")[1]
+Walk.Parent = Character
+local WalkAnim = AnimHandler.new(Character,Walk)
+WalkAnim:Play()
+local function GetGitSound(GithubSnd,SoundName)
+                local url=GithubSnd
+                if not isfile(SoundName..".mp3") then
+                    writefile(SoundName..".mp3", game:HttpGet(url))
+                end
+                local sound=Instance.new("Sound")
+                sound.SoundId=(getcustomasset or getsynasset)(SoundName..".mp3")
+                return sound
+            end
+   local Clock = GetGitSound("https://github.com/SerialdesignationV-collab/Okarun-Awakening-/raw/refs/heads/main/okarun-awakening-made-with-Voicemod.mp3?raw=true","Okarun Awakening")
+
+                Clock.Parent = workspace
+
+                Clock.Volume = 5
+                Clock.TimePosition = 0
+
+                Clock:Play()
+wait(5.7)
+
+local Test = game.ReplicatedStorage.Resources.Tornado.Effects.MiddleSpinEmit.Attachment
+
+local test = Test:Clone()
+test.Parent = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart")
+
+for _, child in ipairs(test:GetChildren()) do
+    if child:IsA("ParticleEmitter") then
+        child:Emit(15)
+        child.Enabled = true
+    end
+end
+wait(0.2)
+test:Destroy()
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+if character then
+    local humanoid = character:WaitForChild("Humanoid")
+    local rootPart = character:WaitForChild("HumanoidRootPart")
+
+    rootPart.Anchored = false
+
+    local initialSpeed = 0.5
+    local finalSpeed = 3
+    local moveSpeed = 666
+    local speed = initialSpeed
+    local changeTime = 1
+    local elapsedTime = 0
+
+    local runService = game:GetService("RunService")
+    local moveConnection
+
+    local function startMoving()
+        moveConnection = runService.RenderStepped:Connect(function(deltaTime)
+            elapsedTime = elapsedTime + deltaTime
+            if elapsedTime >= changeTime then
+                moveSpeed = 222
+            end
+
+            local lookVector = rootPart.CFrame.LookVector
+            local newVelocity = lookVector * moveSpeed * speed
+
+            rootPart.Velocity = newVelocity
+        end)
+    end
+
+    local function stopMoving()
+        if moveConnection then
+            moveConnection:Disconnect()
+            moveConnection = nil
+            speed = initialSpeed
+            elapsedTime = 0
+            rootPart.Velocity = Vector3.new(0, 0, 0)
+        end
+    end
+
+    startMoving()
+wait(2)
+    stopMoving()
+end
+wait(24)
+WalkAnim:Stop()
+wait(1)
+local Player = game.Players.LocalPlayer
+local Character = Player.Character
+local AnimHandler = loadstring(game:HttpGet("https://raw.githubusercontent.com/ProudNamed/SuperLightning/refs/heads/main/AnimModule/MainModule"))()
+local Walk = game:GetObjects("rbxassetid://128808444469386")[1]
+Walk.Parent = Character
+local WalkAnim = AnimHandler.new(Character,Walk)
+WalkAnim:Play()
+local function GetGitSound(GithubSnd,SoundName)
+                local url=GithubSnd
+                if not isfile(SoundName..".mp3") then
+                    writefile(SoundName..".mp3", game:HttpGet(url))
+                end
+                local sound=Instance.new("Sound")
+                sound.SoundId=(getcustomasset or getsynasset)(SoundName..".mp3")
+                return sound
+            end
+   local Clock = GetGitSound("https://github.com/SerialdesignationV-collab/Okarun-Awakening-/raw/refs/heads/main/okarun-awakening-made-with-Voicemod.mp3?raw=true","Okarun Awakening")
+
+                Clock.Parent = workspace
+
+                Clock.Volume = 5
+                Clock.TimePosition = 0
+
+                Clock:Play()
